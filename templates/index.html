@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraudulent Transaction Classification</title>
+<style>
+	body {
+		background-color: rgb(127, 240, 105);
+	}
+
+	h1{
+		text-align: center;
+	}
+	
+</style>				
+
+</head>
+
+<body>
+
+<h1> Fraudulent Transaction Prediction </h1>
+
+<h2> Model Inputs</h2>
+
+    <form action="{{ url_for('predict')}}" method="POST">
+    Original Account Holder Balance:  <input type="number" name="oldbalanceOrg"><br>
+    Transaction Amount:   <input type="number" name="amount"><br>
+    New Account Holder Balance:  <input type="number" name="newbalanceOrig"><br>
+    New Destination Account Balance:  <input type="number" name="newbalanceDest"><br>
+	      
+        <input type=submit value=Submit>
+   </form>
+
+<h2> Prediction (99% Accuracy & 99% & Sensitivity)</h2>
+
+    Fraudulent or Legitimate: {{ predict }}
+
+<p> ** 0 = Legitimate and 1 = Fraudulent </p>
+
+<p> ** The model inputs are all numeric.  Please input the data regarding the transaction amount and your account data for the first three fields.
+    The destination account balance refers to the other party of the transaction.
+</p>
+
+</body>
+</html>
